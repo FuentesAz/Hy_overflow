@@ -4,6 +4,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Header from './components/Header';
 import PostList from './components/PostList';
+import Profile from './components/Profile'; 
 import PostDetail from './components/PostDetail';
 import './App.css';
 
@@ -12,8 +13,10 @@ const App = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('access_token');
-    if (token) {
-      setIsAuthenticated(true);
+    if (!token) {
+      setIsAuthenticated(false); // Si no hay token, no está autenticado
+    } else {
+      setIsAuthenticated(true); // Si hay token, está autenticado
     }
   }, []);
 
@@ -29,6 +32,7 @@ const App = () => {
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login setAuth={setIsAuthenticated} />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/posts" element={isAuthenticated ? <PostList /> : <Navigate to="/login" />} />
           <Route path="/posts/:id" element={isAuthenticated ? <PostDetail /> : <Navigate to="/login" />} />
           <Route path="/" element={<Navigate to="/posts" />} />

@@ -1,0 +1,68 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #489397;
+    padding: 20px 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    color: white;
+    width: 50%;
+    height: 500px;
+}
+
+.formulario{
+    padding: 0 10px;
+    margin: auto;
+    width: 100%;
+}
+ 
+.inp_nombre,
+.inp_pass {
+    display: flex;
+    flex-direction: column;
+}
+
+.inp_nombre label,
+.inp_pass label{
+    align-self: flex-start;
+    margin-left: 10px;
+}
+
+input {
+    margin: 10px 10px;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 0px 20px 20px 20px;
+    outline: none;
+}
+
+button {
+    background-color: #90BDBF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+
+}
+
+button:hover {
+    background-color: #007a7d;
+}
+
+.btn{
+    display: flex;
+    margin-top: 50px;
+}
+
+.btn button{
+    margin-left: 20%;
+}
+
+.btn ul li a{
+    color: white;
+}
+

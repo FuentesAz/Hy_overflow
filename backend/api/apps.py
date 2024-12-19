@@ -1,6 +1,7 @@
 from django.apps import AppConfig
 
-
-class ApiConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
+class YourAppConfig(AppConfig):
     name = 'api'
+
+    def ready(self):
+        import api.signals  # Importa el archivo de señales
