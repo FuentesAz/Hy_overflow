@@ -14,7 +14,6 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='post_images/', null=True, blank=True)
     likes = models.PositiveIntegerField(default=0)
     views = models.PositiveIntegerField(default=0)
     comments_count = models.PositiveIntegerField(default=0)

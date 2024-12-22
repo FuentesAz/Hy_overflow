@@ -1,0 +1,43 @@
+.profile-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 20px;
+    width: 25%;
+    background-color: rgba(72, 147, 151, 0.61);
+
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 80px;
+}
+
+.inp_nombre_profile label,
+.inp_email_profile label,
+.inp_file_profile label{
+    color: white;
+    display: flex;
+    margin-left: 10px;
+}
+
+.inp_nombre_profile ,
+.inp_email_profile ,
+.inp_file_profile {
+    display: flex;
+    flex-direction: column;
+    margin-top: 35px;
+    color: white;
+}
+
+.btn_profile button,
+.logout-btn_profile button{
+    margin-top: 20px;
+    background-color: #007c7a;
+}

@@ -14,36 +14,32 @@ const Login = ({ setAuth }) => {
     setError(''); // Resetear el error
 
     try {
-        const response = await axios.post('http://127.0.0.1:8000/api/login/', {
-            username,
-            password
-        });
+      const response = await axios.post('http://127.0.0.1:8000/api/login/', {
+        username,
+        password
+      });
 
-        // Guardar los tokens en localStorage
-        localStorage.setItem('access_token', response.data.access);
-        localStorage.setItem('refresh_token', response.data.refresh);
+      // Guardar los tokens en localStorage
+      localStorage.setItem('access_token', response.data.access);
+      localStorage.setItem('refresh_token', response.data.refresh);
 
-        // Actualizar el estado de autenticación
-        setAuth(true);
+      // Actualizar el estado de autenticación
+      setAuth(true);
 
-        // Redirigir al perfil
-        navigate('/profile');
+      // Redirigir al perfil
+      navigate('/profile');
     } catch (error) {
-        // Manejo de errores
-        if (error.response) {
-            // Errores desde el backend
-            setError(error.response.data.error || 'Credenciales incorrectas. Intenta de nuevo.');
-        } else if (error.request) {
-            // Error de red
-            setError('Error al conectar con el servidor. Intenta de nuevo más tarde.');
-        } else {
-            // Otros errores
-            setError('Ocurrió un error desconocido.');
-        }
-        console.error(error);
-        console.log(username, password)
+      // Manejo de errores
+      if (error.response) {
+        setError(error.response.data.error || 'Credenciales incorrectas. Intenta de nuevo.');
+      } else if (error.request) {
+        setError('Error al conectar con el servidor. Intenta de nuevo más tarde.');
+      } else {
+        setError('Ocurrió un error desconocido.');
+      }
+      console.error(error);
     }
-};
+  };
 
   return (
     <div className="login-container">
@@ -70,11 +66,15 @@ const Login = ({ setAuth }) => {
           </div>
           {error && <div className="error-message">{error}</div>}  {/* Mostrar mensaje de error */}
           <div className="btn">
-            <ul>
-              <li><span>¿Aún no tienes una cuenta?</span></li>
-              <li><Link to="/register">Registrarse</Link></li>
-            </ul>
-            <button type="submit">INICIAR SESIÓN</button>
+            <div className="login_btn">
+              <ul>
+                <li><span>¿Aún no tienes una cuenta?</span></li>
+                <li><Link to='/register'>Registrarse</Link></li>
+              </ul>
+            </div>
+            <div className='btn_register'>
+              <button type="submit">INICIAR SESIÓN</button>
+            </div>
           </div>
         </form>
       </div>
